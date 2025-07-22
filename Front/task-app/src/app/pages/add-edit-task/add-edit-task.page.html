@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ task ? 'Edit Task' : 'New Task' }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form" (ngSubmit)="save()">
+    <ion-item>
+      <ion-label position="floating">Titulo</ion-label>
+      <ion-input formControlName="title"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Prioridad</ion-label>
+        <ion-select formControlName="priority" interface="popover">
+            <ion-select-option *ngFor="let priority of priorities" [value]="priority.value">
+            {{ priority.label }}
+            </ion-select-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-footer class="ion-padding">
+      <ion-button expand="block" type="submit" [disabled]="form.invalid">
+        {{ task ? 'Update' : 'Create' }}
+      </ion-button>
+    </ion-footer>
+  </form>
+</ion-content>

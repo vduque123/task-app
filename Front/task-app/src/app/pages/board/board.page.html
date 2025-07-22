@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Task Board</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openModal()">Add Task</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="board">
+   <div
+  class="column"
+  *ngFor="let status of statuses"
+>
+  <h2>{{ status.label }}</h2>
+  <div
+    cdkDropList
+    [id]="'cdk-drop-' + status.value"
+    [cdkDropListData]="getTasksByStatus(status.value)"
+    [cdkDropListConnectedTo]="connectedDropLists"
+    (cdkDropListDropped)="onDrop($event, status.value)"
+    class="task-list"
+  >
+    <div
+  class="task-card"
+  *ngFor="let task of getTasksByStatus(status.value)"
+  cdkDrag
+  [cdkDragData]="task"
+>
+  <h3>{{ task.title }}</h3>
+  <p>Priority: {{ getPriorityName(task.priority) }}</p>
+  <ion-buttons>
+    <ion-button size="small" (click)="openModal(task)">
+      <ion-icon name="create-outline"></ion-icon>
+    </ion-button>
+    <ion-button size="small" color="danger" (click)="confirmDelete(task)">
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</div>
+  </div>
+</div>
+
+  </div>
+</ion-content>

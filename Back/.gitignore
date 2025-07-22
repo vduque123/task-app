@@ -1,0 +1,76 @@
+# Archivos de sistema y editor
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.DS_Store
+Thumbs.db
+
+# Carpetas de compilación y salida
+bin/
+obj/
+out/
+artifacts/
+publish/
+
+# Archivos generados por compilación (.NET)
+*.dll
+*.exe
+*.pdb
+*.cache
+*.mdb
+*.log
+*.tmp
+*.temp
+*.db
+*.db-shm
+*.db-wal
+
+# Archivos de documentación y análisis
+*.xml         # Archivos de documentación XML generados al compilar
+*.xsd         # Esquemas XML
+*.ddl         # Archivos de definición de base de datos
+*.rdl         # Report Definition Language
+*.coverage    # Archivos de cobertura de pruebas
+*.coveragexml
+
+# Archivos de configuración local
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+*.secret.json
+.env
+
+# Archivos de paquetes y NuGet
+*.nupkg
+*.snupkg
+*.nuspec
+packages/
+.nuget/
+project.lock.json
+project.fragment.lock.json
+
+# Base de datos local (incluyendo SQLite y SQL Server Express)
+*.mdf
+*.ldf
+*.sqlite
+*.sdf
+
+# Test results
+TestResults/
+*.trx
+
+# Logs y errores
+*.log
+logs/
+
+# Archivos de Node/NPM si usas Angular o React integrados
+node_modules/
+npm-debug.log
+package-lock.json
+yarn.lock
+
+# Visual Studio cache
+.vs/
